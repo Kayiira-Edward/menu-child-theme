@@ -3,7 +3,7 @@ function enqueue_style_files(){
     //loading the parent style
     wp_enqueue_style('parent-style', get_template_directory_uri().'/style.css' );
     //loading the child style
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri().'/assets/css/style.css', array('parent-style'));
+    wp_enqueue_style('child-style', get_stylesheet_directory_uri().'/assets/css/style.css', array(''), '1.0.0');
     //versioning the child style file
     // filemtime(get_stylesheet_directory() . '/assets/css/style.css');
 }
