@@ -68,3 +68,26 @@ function register_menu_category_taxonomy(){//task 2.2
     register_taxonomy('menu_category', 'menu', $args);
 }
 add_action('init', 'register_menu_category_taxonomy');
+
+//A shortcode added 'header'
+add_shortcode('header', 'display_header');
+function display_header($att = [], $content = null){
+    $atts = shortcode_atts(
+        array(
+            'title' => 'Welcome to this Website',
+            'paragraph'=> 'Its a greate day to see you here, expolore the website to know more about me.',
+            'image' => 'https://kayiira-edward.vercel.app/photos/eddy.webp',
+        ), $att, 'header'
+
+        
+        );
+        $title = $atts['title'];
+        $paragraph = $atts['paragraph'];
+        $image = $atts['image'];
+        $print = '<div class="header-box">';
+        $print .= '<h2>' . esc_html($title) . '</h2>';
+        $print .= '<img src="' . esc_url($image) . '" alt="Ooh! check ur connection it was my pic loading...">';
+        $print .= '<p>' . esc_html($paragraph) . '</p>';
+        $print .= '</div>';
+        return $print;
+}
